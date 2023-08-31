@@ -1,0 +1,57 @@
+---
+title: "HW 0"
+author: "Xiaoyue Zhang"
+format: html
+---
+
+# Prompt
+
+-   Write a Quarto document that defines variables $a=1, b=3, c=2$ and print out the solutions to $f(x) = ax^2+bx+c=0$. Include a graph confirming the result. Your code should properly deal with the fact that there could be 0, 1 or 2 solutions.
+
+# Answer
+
+-   I created a function called ***solvequadratic*** to solve quadratic functions in the form of $f(x) = ax^2+bx+c=0$, with parameters a, b, and c as arguments.
+
+```{r}
+#| echo: false
+# write a function to solve quadratic functions with parameters a,b,c as arguments of the function
+solvequadratic <- function(a, b, c){
+  delta = b*b - 4*a*c
+  
+  if (delta > 0){ 
+    # 2 distinct solutions
+    ans1 = ((-b)+delta)/(2*a)
+    ans2 = ((-b)-delta)/(2*a)
+    return(c(ans1, ans2))
+    
+  } else if (delta == 0){ 
+    # only 1 solution
+    return((-b)/(2*a))
+    
+  }else{ 
+    # no solution
+    return("No real-number solution")
+  }
+}
+```
+
+-   As prompted in the question, we have a=1, b=3, and c=2. By plugging them into the function ***solvequadratic***, the solution(s) are printed below:
+
+```{r}
+#| echo: false
+a <- 1
+b <- 3
+c <- 2
+solvequadratic(a,b,c)
+
+# print(paste0("The solution(s) to f(x) = ", a, "*x^2 + ", b, "*x + ", c, " is(are) ", res))
+```
+
+-   Here is the visualization of the quadratic equation and its solution(s). The result derived above matches the plot shown below, which is also presented as intersection(s) of the horizontal dotted line and the curve.
+
+```{r}
+#| echo: false
+x <- seq(-3, 1, length = 300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h=0, lty=2)
+```
