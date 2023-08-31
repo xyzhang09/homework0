@@ -4,12 +4,6 @@ author: "Xiaoyue Zhang"
 format: html
 ---
 
-# Prompt
-
--   Write a Quarto document that defines variables $a=1, b=3, c=2$ and print out the solutions to $f(x) = ax^2+bx+c=0$. Include a graph confirming the result. Your code should properly deal with the fact that there could be 0, 1 or 2 solutions.
-
-# Answer
-
 -   I created a function called ***solvequadratic*** to solve quadratic functions in the form of $f(x) = ax^2+bx+c=0$, with parameters a, b, and c as arguments.
 
 ```{r}
